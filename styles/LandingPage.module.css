@@ -1,0 +1,249 @@
+.container {
+  position: relative;
+  background-color: #ffffff;
+  padding: 0;
+  
+}
+
+.main {
+  height: calc(100vh - 70px);
+  /* padding: 4rem 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.landingImg{
+     width: 45%;
+     height: 100%;
+     z-index: 1;
+     background-image: url('/images/blob.svg'); 
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.landingImg img{
+     width: 100%;
+     height: 100%;
+     z-index: 1000;
+     object-fit: contain;
+
+}
+.landingTxt{
+     width: 55%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: none;
+     /* padding-top: 5%; */
+     z-index: 1 ;
+}
+.svg{
+     position: absolute;
+     bottom : 0;
+     left: 0;
+     
+}
+
+
+.title {
+  font-size: 6.5rem;
+  font-weight: 900;
+  color: #1976D2;
+  margin:   0px !important;
+  /* border: 1px solid red; */
+}
+.title2 {
+  color: rgb(53, 53, 54);
+  font-size: 4.5rem;
+  margin:  0px !important;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: rgb(69, 69, 73);
+  margin: 10px 0px !important;
+}
+.signupButton{
+     height: 4.2em;
+     width: 16em;
+     font-weight: 700;
+     font-size: medium;
+}
+.signupButton, .signinButton{
+     background-color: #ffe23a;
+     color: rgb(53, 53, 54);
+     font-weight: 700;
+ 
+}
+.signupButton:hover{
+     background-color: #ffe862;
+     color: rgb(53, 53, 54);
+}
+.signinButton:hover{
+     background-color: #ffe862;
+     color: rgb(53, 53, 54);
+}
+
+
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 300px;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+     .main{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          
+     }
+
+     .landingImg{
+          width: 100%;
+          height: 50%;
+     }
+     .landingTxt{
+          width: 100%;
+          height: 50%;
+         padding-top: 5%;
+        
+     }
+     .title {
+          font-size: 3rem;
+          font-weight: 900;
+          color: #1976D2;
+          margin: 10px 0px  0px !important;
+          /* border: 1px solid red; */
+        }
+        .title2 {
+          color: rgb(53, 53, 54);
+          font-size: 2rem;
+          margin: 10px 0px  0px !important;
+        }
+        .description {
+          font-size: 14px;
+          color: rgb(95, 95, 97);
+          margin: 10px 0px !important;
+        }
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+     .main{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+     }
+
+     .landingImg{
+          width: 100%;
+          height: 50%;
+     }
+     .landingTxt{
+          width: 100%;
+          height: 50%;
+         padding-top: 5%;
+        
+     }
+     .title {
+          font-size: 6rem;
+          font-weight: 900;
+       
+     }
+     .title2 {
+          color: rgb(53, 53, 54);
+          font-size: 4rem;
+          margin: 10px 0px  0px !important;
+     }
+ 
+     .signupButton{
+          height: 4.2em;
+          width: 16em;
+          font-weight: 700;
+          font-size: x-large;
+     }
+     .description {
+          font-size: 20px;
+          color: rgb(95, 95, 97);
+          margin: 10px 0px !important;
+        }
+  }
+
+/* small mobile :320px. */
+@media (min-width: 320px) and (max-width: 480px) {
+     .title{
+          border: 1px solid red;
+          font-size: 50px;
+          font-weight: 500;
+     }
+     .title2 {
+          font-size: 2rem;
+        }
+     .signinButton{
+          font-weight: 200;
+          font-size: 14px;
+     }
+     .signupButton{
+          height: 3em;
+          width: 10em;
+          font-weight: 500;
+          font-size: small ;
+     }
+ 
+}
