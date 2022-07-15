@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Image from 'next/image';
 import { Avatar, Button } from '@mui/material';
 import styles from '../styles/landingPage.module.css'
+import Link from 'next/link';
 
 function NavHead() {
   return (
@@ -11,9 +12,11 @@ function NavHead() {
           <img src={'/images/logo.png'}  />
         </Logo>
           
-         <Button variant="contained" size="large" className={styles.signinButton}>
-               Sign in
-          </Button>
+         <Link href={'/sign-in'}>
+               <Button variant="contained" size="large" className={styles.signinButton}>
+                    Sign in
+               </Button>
+         </Link>
     </Nav>
   )
 }
@@ -28,8 +31,8 @@ const Nav = styled.div`
      padding-left: 1rem;
      height : 70px;
      width : 100%;
-     border-bottom : 1px solid #f9f9f9;
-`
+    border-bottom: 1px solid #c4c4c4f9;
+`;
 const Logo = styled.div`
      width: 90px;
      height: 60px;

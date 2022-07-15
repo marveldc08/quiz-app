@@ -4,14 +4,17 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: var(--bg-color);
 }
 .top{
     width: 100%;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
     border-bottom: 1px solid #c4c4c4f9;
+    z-index: 100;
 }
 .top_icon{
     font-size: 30px;
@@ -46,6 +49,7 @@
 .simg img{
     height: 100%;
     width: 100%;
+   
     
 }
 .sform{
@@ -56,12 +60,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+     transition: ease-in .3s;
+    transition-duration: 2s;
 }
 
 .sform form{
      position: relative;
      width: 100%; 
+     margin-top: 2rem 0;
      
 }
 .sform form input{
@@ -81,18 +87,50 @@
     /* justify-content: space-between; */
     align-items: center;
 }
-.signupButton{
+.signupButton, .gButton{
      height: 3em;
      width: 80%;
      font-weight: 700;
      font-size: 1em;
      background-color: var(--main-color);
      color: var(--bg-color);
+     border-radius: 10px;
+     /* margin-top: 10px; */
 }
 
 .signupButton:hover{
      background-color: var(--yhover-color);
      color: var(--text-color)
+}
+.gButton:hover{
+    background-color: transparent;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.fpassword, .google, .partition{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 3px;
+}
+.fpassword p{
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 400;
+    cursor: pointer;
+}
+.partition div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    
+}
+.partition div hr{
+    color:  var(--main-color);
+    width: 45%;
 }
 
 
@@ -112,16 +150,25 @@
         height: 60%;
        
     }
-    .sform form{
+    /* .sform form{
         height: 100%; 
         
-    }
+    } */
     .sform form input{
         width: 100%;
     }
-    .signupButton{
+    .signupButton, .gButton{
         margin: 9px 0 8px;
          width: 100%;
     }
+    .partition div{
+        width: 100%;
+    }  
  
+}
+@media (max-width: 390px) {
+    .gButton{
+        font-size: 0.8em;
+        padding: 7px 0;
+    }
 }
