@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
   padding: 0;
   
 }
@@ -53,12 +53,12 @@
 .title {
   font-size: 6.5rem;
   font-weight: 900;
-  color: #1976D2;
+  color: var(--main-color);
   margin:   0px !important;
   /* border: 1px solid red; */
 }
 .title2 {
-  color: rgb(53, 53, 54);
+  color: var(--text-color);
   font-size: 4.5rem;
   margin:  0px !important;
 }
@@ -80,18 +80,18 @@
      font-size: medium;
 }
 .signupButton, .signinButton{
-     background-color: #ffe23a;
-     color: rgb(53, 53, 54);
+     background-color: var(--second-color);
+     color: var(--text-color);
      font-weight: 700;
  
 }
 .signupButton:hover{
-     background-color: #ffe862;
-     color: rgb(53, 53, 54);
+     background-color: var(--yhover-color);
+     color: var(--text-color)
 }
 .signinButton:hover{
-     background-color: #ffe862;
-     color: rgb(53, 53, 54);
+     background-color: var(--yhover-color);
+     color: var(--text-color)
 }
 
 
@@ -168,12 +168,12 @@
      .title {
           font-size: 3rem;
           font-weight: 900;
-          color: #1976D2;
+          color: var(--main-color);
           margin: 10px 0px  0px !important;
           /* border: 1px solid red; */
         }
         .title2 {
-          color: rgb(53, 53, 54);
+          color: var(--text-color);
           font-size: 2rem;
           margin: 10px 0px  0px !important;
         }
@@ -207,7 +207,7 @@
        
      }
      .title2 {
-          color: rgb(53, 53, 54);
+          color: var(--text-color);
           font-size: 4rem;
           margin: 10px 0px  0px !important;
      }
@@ -228,9 +228,8 @@
 /* small mobile :320px. */
 @media (min-width: 320px) and (max-width: 480px) {
      .title{
-          border: 1px solid red;
-          font-size: 50px;
-          font-weight: 500;
+          font-size: 53px;
+          font-weight: 700;
      }
      .title2 {
           font-size: 2rem;

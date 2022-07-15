@@ -4,6 +4,7 @@ import Image from 'next/image'
 import NavHead from '../components/NavHead'
 import { Button } from '@mui/material';
 import styles from '../styles/landingPage.module.css'
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -17,19 +18,22 @@ const Home: NextPage = () => {
       <NavHead />
      
       <main className={styles.main}>
-       <div className={styles.landingImg}>
-            <img src='/images/groupof3.png' />
-       </div>
-       <div className={styles.landingTxt}>
-            <h2 className={styles.title2}>Welcome To The</h2>
-            <h1 className={styles.title}>Quizapp</h1>
-            <h6 className={styles.description}>
-                 Answer Questions in limited time, Challenge Friends and climb the Leader Board
-            </h6>
-            <Button variant="contained" size="large" className={styles.signupButton} >
-               Sign up
-            </Button>
-       </div>
+          <div className={styles.landingImg}>
+               <img src='/images/groupof3.png' />
+          </div>
+          <div className={styles.landingTxt}>
+               <h2 className={styles.title2}>Welcome To The</h2>
+               <h1 className={styles.title}>Quizapp</h1>
+               <h6 className={styles.description}>
+                    Answer Questions in limited time, Challenge Friends and climb the Leader Board
+               </h6>
+               <Link href='/sign-up'>
+                    <Button variant="contained" size="large" className={styles.signupButton} >
+                         Sign up
+                    </Button>
+               </Link>
+              
+          </div>
       </main>
       {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className={styles.svg}>
            <path fill="#1976D2" fill-opacity="1" d="M0,0L34.3,0C68.6,0,137,0,206,5.3C274.3,11,343,21,411,48C480,75,549,117,617,160C685.7,203,754,245,823,266.7C891.4,288,960,288,1029,293.3C1097.1,299,1166,309,1234,272C1302.9,235,1371,149,1406,106.7L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>

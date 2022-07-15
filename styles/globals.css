@@ -11,6 +11,25 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+*{
+     box-sizing: border-box;
+     padding: 0;
+     margin: 0;
+     /* font-family: 'Josefin Sans', sans-serif; */
+     list-style: none;
+     text-decoration: none;
+     scroll-behavior: smooth;
+     scroll-padding-top: 3.5rem;
+     /* border: 1px solid red; */
+}
+:root{
+     --bg-color: #ffffff;
+     --second-bg-color: #f1f1f1f1;
+     --text-color: rgb(53, 53, 54);;
+     --second-color: #ffe23a;
+     --main-color: #1976D2;
+     --yhover-color: #ffe862;
+     --big-font: 5.3rem;
+     --h2-font: 4.2rem;
+     --p-font: 1.1rem;
 }
