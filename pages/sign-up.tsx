@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Button, FormControl, Input, InputLabel, TextField } from "@mui/material";
+import { Alert, AlertTitle, Button, FormControl, Input, InputLabel, Stack, TextField } from "@mui/material";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 
@@ -20,7 +20,7 @@ function signUp() {
 
       <main className={styles.container}>
         <div className={styles.top}>
-          <Link href={'/'}>
+          <Link href={"/"}>
             <BsArrowLeftCircle className={styles.top_icon} />
           </Link>
           <div>
@@ -37,6 +37,17 @@ function signUp() {
             <img src="/images/signup2.svg" />
           </div>
           <div className={styles.sform}>
+            {/* <Stack sx={{ width: "100%" }} spacing={2}>
+              <Alert severity="error">
+                <AlertTitle>Error</AlertTitle>
+                This is an error alert — <strong>check it out!</strong>
+              </Alert>
+
+              <Alert severity="success">
+                <AlertTitle>Success</AlertTitle>
+                This is a success alert — <strong>check it out!</strong>
+              </Alert>
+            </Stack> */}
             <form action="">
               <div className={styles.group}>
                 <InputLabel htmlFor="email">Full Name</InputLabel>
@@ -58,11 +69,7 @@ function signUp() {
                 <InputLabel htmlFor="email">Confirm Password</InputLabel>
                 <input type="password" name="" id="" required />
               </div>
-              <Button
-                variant="contained"
-                size="large"
-                className={styles.signupButton}
-              >
+              <Button variant="contained" size="large" className={styles.signupButton}>
                 Sign up
               </Button>
             </form>

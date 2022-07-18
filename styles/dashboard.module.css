@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--bg-color);
+}
+.content{
+    height: 90%;
+    width: 100%;
+    padding: 5px 3%;
+}
