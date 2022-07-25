@@ -15,6 +15,10 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
+import { FaUserCircle, FaPlay } from "react-icons/fa";
+import { GiTrophy } from "react-icons/gi";
+import { BsBarChartLineFill } from "react-icons/bs";
+import { AiTwotoneSetting, AiOutlineClose } from "react-icons/ai";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -61,36 +65,81 @@ function head() {
  const handleDrawerToggle = () => {
    setMobileOpen(!mobileOpen);
  };
+ const handleCloseDrawer = () => {
+    setMobileOpen(mobileOpen);
+ }
 
  const drawer = (
    <div>
-     <Toolbar />
+     {/* <Toolbar /> */}
+     <div className={styles.close}>
+       <IconButton
+         color="inherit"
+         aria-label="open drawer"
+         edge="end"
+         onClick={handleDrawerToggle}
+         sx={{ display: { sm: "block" } }}
+       >
+         <AiOutlineClose />
+       </IconButton>
+     </div>
      <Divider />
      <List>
-       {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-         <ListItem key={text} disablePadding>
-           <ListItemButton className={styles.li}>
-             <ListItemIcon className={styles.li_Icon}>
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-             </ListItemIcon>
-             <ListItemText primary={text} />
-           </ListItemButton>
-         </ListItem>
-       ))}
+       <div className={styles.profile}>
+         <Avatar
+           {...stringAvatar("Kent Dodds")}
+           sx={{ width: 56, height: 56, background: "green" }}
+         />
+       </div>
+
+       <ListItem key="My Profile" disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <FaUserCircle />
+           </ListItemIcon>
+           <ListItemText primary="My Profile" />
+         </ListItemButton>
+       </ListItem>
+       <ListItem key="Instant Play" disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <FaPlay />
+           </ListItemIcon>
+           <ListItemText primary="Instant Play" />
+         </ListItemButton>
+       </ListItem>
+       <ListItem key="Challenges" disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <GiTrophy />
+           </ListItemIcon>
+           <ListItemText primary="Challenges" />
+         </ListItemButton>
+       </ListItem>
+       <ListItem key="Leader Board" disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <BsBarChartLineFill />
+           </ListItemIcon>
+           <ListItemText primary="Leader Board" />
+         </ListItemButton>
+       </ListItem>
+       <ListItem key={"Settings"} disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <AiTwotoneSetting />
+           </ListItemIcon>
+           <ListItemText primary={"Settings"} />
+         </ListItemButton>
+       </ListItem>
      </List>
-     <Divider />
-     <List>
-       {["All mail", "Trash", "Spam"].map((text, index) => (
-         <ListItem key={text} disablePadding>
-           <ListItemButton>
-             <ListItemIcon>
-               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-             </ListItemIcon>
-             <ListItemText primary={text} />
-           </ListItemButton>
-         </ListItem>
-       ))}
-     </List>
+
+     <NavFoot className={styles.navfoot}>
+       <Divider />
+       <NavFootText>
+         <p>Quizapp copyight 2023. All rights reserved</p>
+       </NavFootText>
+     </NavFoot>
    </div>
  );
 
@@ -179,3 +228,21 @@ const Space = styled.div`
   width: 70px;
   margin-left: 12px;
 `
+const NavFoot = styled.div`
+ 
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+
+ 
+`;
+const NavFootText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 4px;
+  p {
+    font-size: 12px;
+    color: var(--text-color);
+  }
+`;

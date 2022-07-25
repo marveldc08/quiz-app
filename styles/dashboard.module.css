@@ -11,3 +11,13 @@
     width: 100%;
     padding: 5px 3%;
 }
+.instant{
+    height: 60%;
+    width: 100%;
+    border: 1px solid red;
+}
+.challenge{
+     height: 40%;
+    width: 100%;
+    border: 1px solid rgb(0, 4, 84);
+}
