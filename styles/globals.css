@@ -23,6 +23,7 @@ a {
 }
 :root{
      --bg-color: #ffffff;
+     --white-color: #ffffff;
      --second-bg-color: #f1f1f1f1;
      --text-color: rgb(53, 53, 54);;
      --second-color: #ffe23a;

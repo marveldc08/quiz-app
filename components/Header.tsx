@@ -17,16 +17,18 @@ import {
 } from "@mui/material";
 import { FaUserCircle, FaPlay } from "react-icons/fa";
 import { GiTrophy } from "react-icons/gi";
+import { MdCreate } from "react-icons/md";
 import { BsBarChartLineFill } from "react-icons/bs";
 import { AiTwotoneSetting, AiOutlineClose } from "react-icons/ai";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from 'styled-components';
 import styles from '../styles/header.module.css'
 
 const drawerWidth = 240;
 
+interface avaterProp {
+  userName: string;
+}
 ///for Avatar start here
 function stringToColor(string: string) {
   let hash = 0;
@@ -59,7 +61,7 @@ function stringAvatar(name: string) {
 //Avarat function ends here
 
 
-function head() {
+function head({userName}:avaterProp) {
  const [mobileOpen, setMobileOpen] = React.useState(false);
 
  const handleDrawerToggle = () => {
@@ -87,8 +89,8 @@ function head() {
      <List>
        <div className={styles.profile}>
          <Avatar
-           {...stringAvatar("Kent Dodds")}
-           sx={{ width: 56, height: 56, background: "green" }}
+           {...stringAvatar(userName)}
+           sx={{ width: 56, height: 56, background: `var(--main-color)` }}
          />
        </div>
 
@@ -108,12 +110,20 @@ function head() {
            <ListItemText primary="Instant Play" />
          </ListItemButton>
        </ListItem>
-       <ListItem key="Challenges" disablePadding>
+       <ListItem key="Quiz Challenge" disablePadding>
          <ListItemButton className={styles.li}>
            <ListItemIcon className={styles.li_Icon}>
              <GiTrophy />
            </ListItemIcon>
-           <ListItemText primary="Challenges" />
+           <ListItemText primary="Quiz Challenge" />
+         </ListItemButton>
+       </ListItem>
+       <ListItem key="Host Challenge" disablePadding>
+         <ListItemButton className={styles.li}>
+           <ListItemIcon className={styles.li_Icon}>
+             <MdCreate />
+           </ListItemIcon>
+           <ListItemText primary="Host Challenge" />
          </ListItemButton>
        </ListItem>
        <ListItem key="Leader Board" disablePadding>
@@ -213,7 +223,7 @@ function head() {
          {drawer}
        </Drawer>
      </Box>
-     <Avatar {...stringAvatar("Kent Dodds")} />
+     <Avatar {...stringAvatar(userName)} sx={{background:`var(--main-color)`}} />
    </Box>
  );
 }
@@ -240,7 +250,7 @@ const NavFootText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 4px;
+  padding: 2% 4px;
   p {
     font-size: 12px;
     color: var(--text-color);
