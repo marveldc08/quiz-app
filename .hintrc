@@ -1,0 +1,20 @@
+{
+    "connector": {
+        "name": "puppeteer",
+        "options": {
+            // "auth": AuthObject,
+            "browser": "Chrome|Chromium|Edge",
+            "headless": false,
+            "ignoreHTTPSErrors": false,
+            "puppeteerOptions": "object",
+            "waitUntil": "dom|loaded|networkidle0|networkidle2"
+        }
+},
+    "formatters": [""],
+    "hints": {
+        "meta-viewport": "error"
+       
+    },
+    "parsers": [""]
+    
+}

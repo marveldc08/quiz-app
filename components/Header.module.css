@@ -1,0 +1,26 @@
+ /* .li:first-child{
+    color: var(--main-color);
+} */
+.li:hover{
+    background: var(--main-color);
+    color: var(--white-color);
+}
+.li_Icon{
+    color: inherit;
+    font-size: 23px;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px  5px 9px;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+.close{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0px 15px;
+}
+
