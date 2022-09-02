@@ -22,7 +22,8 @@ import { BsBarChartLineFill } from "react-icons/bs";
 import { AiTwotoneSetting, AiOutlineClose } from "react-icons/ai";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from 'styled-components';
-import styles from '../styles/header.module.css'
+import styles from  "./Header.module.css"
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
@@ -223,7 +224,12 @@ function head({userName}:avaterProp) {
          {drawer}
        </Drawer>
      </Box>
-     <Avatar {...stringAvatar(userName)} sx={{background:`var(--main-color)`}} />
+     <Link href={"http://localhost:5000/logout"}>
+       <Avatar
+         {...stringAvatar(userName)}
+         sx={{ background: `var(--main-color)` }}
+       />
+     </Link>
    </Box>
  );
 }
