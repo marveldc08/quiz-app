@@ -59,3 +59,15 @@
     border-bottom-right-radius: 10px;
      border-bottom-left-radius: 10px;
 }
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .instant{
+        flex-direction: column;
+    }
+    .wrapper{
+     width: 100%;
+     margin-bottom: 20px;
+}
+ 
+}
