@@ -86,14 +86,16 @@ function signIn() {
                 <InputLabel htmlFor="email"> Password</InputLabel>
                 <input type="password" name="" id="" required />
               </div>
-              <Button
-                variant="contained"
-                size="large"
-                sx={{ "margin-top": 20 }}
-                className={styles.signupButton}
-              >
-                Log In
-              </Button>
+              <Link href={"/dashboard"}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  sx={{ "margin-top": 20 }}
+                  className={styles.signupButton}
+                >
+                  Log In
+                </Button>
+              </Link>
             </form>
             <div className={styles.fpassword}>
               <Link href={"#"}>

@@ -103,14 +103,16 @@ function head({userName}:avaterProp) {
            <ListItemText primary="My Profile" />
          </ListItemButton>
        </ListItem>
-       <ListItem key="Instant Play" disablePadding>
-         <ListItemButton className={styles.li}>
-           <ListItemIcon className={styles.li_Icon}>
-             <FaPlay />
-           </ListItemIcon>
-           <ListItemText primary="Instant Play" />
-         </ListItemButton>
-       </ListItem>
+       <Link href={"/instant-play"}>
+         <ListItem key="Instant Play" disablePadding>
+           <ListItemButton className={styles.li}>
+             <ListItemIcon className={styles.li_Icon}>
+               <FaPlay />
+             </ListItemIcon>
+             <ListItemText primary="Instant Play" />
+           </ListItemButton>
+         </ListItem>
+       </Link>
        <ListItem key="Quiz Challenge" disablePadding>
          <ListItemButton className={styles.li}>
            <ListItemIcon className={styles.li_Icon}>
