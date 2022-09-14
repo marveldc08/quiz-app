@@ -1,31 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 import styles from '../../styles/questions.module.css';
 import { Button } from '@mui/material';
-import { PlayArrow, SubtitlesOutlined } from '@mui/icons-material';
+import { PlayArrow} from '@mui/icons-material';
+import Swal from "sweetalert2";
 
-const qustions = [
+const questionsArry = [
   {
     id: "1",
     questionTypeId: "1",
-    question:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam fugit blanditiis nulla     nihil dolor repellat, tempora neque debitis fugiat qui doloribus perferendis quae dicta quos tenetur aspernatur voluptates, architecto non.",
-    answer: "True",
-    option1: "Olufsen",
-    option2: "Wrong",
-    option3: "The Wronger",
+    question: "What is the name of the first Black President of the USA ?",
+    answer: "Barak Obama",
+    option1: "Olufsen Paul",
+    option2: "Donald Trump",
+    option3: "Dwain Johnson",
   },
   {
-    id: "1",
-    questionTypeId: "1",
-    question: "wertyu",
-    answer: "rtu",
-    option1: "dfg",
-    option2: "df",
-    option3: "dftg",
-  },
-  {
-    id: "1",
+    id: "2",
     questionTypeId: "1",
     question: "wertyu",
     answer: "rtu",
@@ -34,7 +26,7 @@ const qustions = [
     option3: "dftg",
   },
   {
-    id: "1",
+    id: "3",
     questionTypeId: "1",
     question: "wertyu",
     answer: "rtu",
@@ -43,7 +35,16 @@ const qustions = [
     option3: "dftg",
   },
   {
-    id: "1",
+    id: "4",
+    questionTypeId: "1",
+    question: "wertyu",
+    answer: "rtu",
+    option1: "dfg",
+    option2: "df",
+    option3: "dftg",
+  },
+  {
+    id: "5",
     questionTypeId: "1",
     question: "wertyu",
     answer: "rtu",
@@ -55,11 +56,90 @@ const qustions = [
 
 function questions() {
     const router = useRouter();
-    const {questions} = router.query
-    
+    const {questionType} = router.query
+    const [seconds, setSeconds] = useState<number>(0);
+    const [minutes, setMinutes] = useState<number>(0);
     const [isStarted, setIsStarted] = useState<boolean>(false);
+    const [intervalSeconds, setIntervalSeconds] = useState<number>(1000)
+    const [theQuestion, setTheQuestion] = useState<string>("");
+   
+    
     const handleStartQuiz = () =>{
-        setIsStarted(true)
+      setIsStarted(true)
+      setTheQuestion(questionsArry[0].question)
+      
+      //  setOptions(randomId);
+      setTimeout(()=>{
+         const random = Math.floor(1 + Math.random() * 4);
+         const randomId = random.toString();
+         console.log(randomId);
+         const answer = document.getElementById(randomId) as HTMLDivElement;
+         answer.innerHTML = questionsArry[0].answer
+      },2000)
+      
+      
+      let s = 0;
+      let m = 1;
+      const timerInterval = setInterval(timer, intervalSeconds);
+      function timer(){
+        if (s === 10 && m === 0) {
+          console.log("here");
+          let timeDiv = document.getElementById("timer") as HTMLDivElement;
+          timeDiv.classList.remove('timer');
+          timeDiv.classList.add("timeEnding");
+       
+        }
+
+       if(m === 0 && s === 0) {
+            clearInterval(timerInterval);
+           Swal.fire({
+             title: "Game Over!",
+             html: "The timer has elapsed and the quiz has ended." +
+                    '<p>Your score is: <b>234</b></p>',
+             icon: "error",
+            //  imageUrl: "/images/group.jpg",
+            //  imageWidth: 400,
+            //  imageHeight: 200,
+            //  imageAlt: "Custom image",
+             showCancelButton: true,
+             confirmButtonColor: "#d33",
+             cancelButtonColor: `var(--main-color)`,
+             confirmButtonText: "Yes",
+             cancelButtonText: "No",
+           }).then((result) => {
+             if (result.isConfirmed) {
+               router.back();
+             }
+           });
+          }else if (s > 0) {
+            s--;
+          }else if (s === 0) {
+            m--
+            s+=60;
+          }
+           setSeconds(s)
+           setMinutes(m);
+        }
+        
+    }
+    const quitQuiz = () => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "If You quit now, You would lose your current progress!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: `var(--main-color)`,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // setSeconds(0)
+          // setMinutes(0)
+          setIntervalSeconds(0)
+          router.back();
+        }
+      });
     }
   return (
     <div>
@@ -72,7 +152,8 @@ function questions() {
         {isStarted === false ? (
           <div className={styles.land}>
             <div className={styles.landWrap}>
-              <h2>Your quiz starts on the click of the button.</h2>
+              <p>Your quiz starts on the click of the button.</p>
+
               <Button
                 variant="contained"
                 size="large"
@@ -81,6 +162,7 @@ function questions() {
               >
                 <PlayArrow sx={{ fontSize: "4rem" }} />
               </Button>
+
               <h2>Let's Go... 🚀</h2>
             </div>
           </div>
@@ -91,22 +173,26 @@ function questions() {
                 <div className={styles.points}>
                   <h4>122 +</h4>
                 </div>
-                <div className={styles.timer}>
-                    <h3>20:04:00</h3>
+                <div id="timer" className={styles.timer}>
+                  <h3>
+                    00:{minutes}:{seconds}
+                  </h3>
                 </div>
-                <Button variant='contained' size='large' className={styles.quitOption}>Quit</Button>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={quitQuiz}
+                  className={styles.quitOption}
+                >
+                  Quit
+                </Button>
               </div>
-              <div className={styles.questionSection}>
-                ehdhoidupsdo Lorem ipsum, dolor sit amet consectetur adipisicing
-                elit. Commodi deleniti cumque reiciendis aut minus! Eum
-                molestias harum impedit odit provident assumenda dolores dolore.
-                Nulla nesciunt laboriosam neque ab alias aliquid.
-              </div>
+              <div className={styles.questionSection}>{theQuestion}</div>
               <div className={styles.optionsSection}>
-                <div className={styles.options}>A: oeyuowrouwoeu</div>
-                <div className={styles.options}>B: wuoeyuowro</div>
-                <div className={styles.options}>C: wrouwoeufoi</div>
-                <div className={styles.options}>D: yuowrouwoeufoiasdf</div>
+                <div id="1" className={styles.options}> oeyuowrouwoeu</div>
+                <div id={"2"} className={styles.options}> wuoeyuowro</div>
+                <div id={"3"} className={styles.options}> wrouwoeufoi</div>
+                <div id={"4"} className={styles.options}> yuowrouwoeufoiasdf</div>
               </div>
             </div>
           </div>

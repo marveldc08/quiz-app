@@ -53,7 +53,7 @@ function instantPlayIndex() {
           <div className={styles.instant}>
             {questionCategory.map((category) => (
               <Link href={`instant-play/${category.slog}`}>
-                <div className={styles.wrapper} >
+                <div className={styles.wrapper} key={category.slog} >
                   <div className={styles.img}>
                     <img src={category.photoUrl} alt="challenge" />
                   </div>

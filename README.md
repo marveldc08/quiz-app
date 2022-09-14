@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 * installed material icons ( npm install @mui/icons-material )
 * installed box icons ( npm i boxicons )
+* installed sweetalert2 ( npm install sweetalert2 )
